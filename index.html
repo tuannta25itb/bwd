@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KT2 SPORT</title>
+    <link
+      rel="icon"
+      href="images/kt2sport-removebg-preview.png"
+      type="image/png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      Sống cùng nhịp đập sân cỏ – Mang đến sản phẩm chất lượng, giá hợp lý cho
+      anh em đam mê bóng đá
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <!-- LOGO -->
+        <a class="navbar-brand" href="main.html">
+          <img src="images/kt2sport-removebg-preview.png" class="logo" />
+        </a>
+
+        <!-- MENU -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="giayDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              GIÀY BÓNG ĐÁ
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="tf.html">Giày đinh TF</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="fg.html">Giày đinh FG</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+            >
+              PHỤ KIỆN
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="ball.html"> Quả bóng đá </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="gloves.html">
+                  Găng tay thủ môn
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              data-bs-toggle="dropdown"
+            >
+              HƯỚNG DẪN
+            </a>
+
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="buy-guide.html">
+                  Hướng dẫn mua hàng
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="warranty-policy.html">
+                  Chính sách bảo hành
+                </a>
+              </li>
+
+              <li>
+                <a class="dropdown-item" href="return-policy.html">
+                  Chính sách đổi trả
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutme.html">ABOUT ME</a>
+          </li>
+        </ul>
+
+        <!-- SEARCH + ICON -->
+        <div class="d-flex align-items-center gap-2 position-relative">
+          <input
+            id="searchInput"
+            class="form-control search-box"
+            placeholder="Tìm kiếm ..."
+            oninput="liveSearch(this.value)"
+            onkeydown="handleEnter(event)"
+          />
+
+          <button class="btn btn-light btn-sm" onclick="goSearchPage()">
+            🔍
+          </button>
+
+          <!-- DROPDOWN KẾT QUẢ -->
+          <div id="search-results" class="search-dropdown"></div>
+
+          <i class="bi bi-cart3 icon" onclick="goToCart()"></i>
+          <i class="bi bi-person icon" onclick="goToAuth()"></i>
+          <div class="position-relative">
+            <span
+              id="user-name"
+              class="text-white"
+              style="cursor: pointer"
+            ></span>
+
+            <!-- DROPDOWN ACCOUNT -->
+            <div id="account-box" class="account-box d-none">
+              <div class="account-item" id="acc-name"></div>
+              <div class="account-item" id="acc-email"></div>
+              <div class="account-item" id="acc-phone"></div>
+              <hr />
+              <button class="btn btn-sm btn-danger w-100" onclick="logout()">
+                Đăng xuất
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- BANNER -->
+    <div id="bannerCarousel" class="carousel slide" data-bs-ride="carousel">
+      <!-- indicators (chấm tròn) -->
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide-to="1"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide-to="2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#bannerCarousel"
+          data-bs-slide-to="3"
+        ></button>
+      </div>
+
+      <!-- slides -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/banner10.png" class="d-block w-100 banner-img" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner11.png" class="d-block w-100 banner-img" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner12.png" class="d-block w-100 banner-img" />
+        </div>
+        <div class="carousel-item">
+          <img src="images/banner13.png" class="d-block w-100 banner-img" />
+        </div>
+      </div>
+
+      <!-- nút trái phải -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#bannerCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#bannerCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <!-- cam kết-->
+    <div class="commit-bar">
+      <div class="commit-title">CAM KẾT UY TÍN VÀ CHÍNH HÃNG 100%</div>
+      <div class="commit-sub">
+        Không đúng đền gấp 2 lần <br />
+        <b>Đổi size miễn phí nếu không vừa</b>
+      </div>
+    </div>
+
+    <!-- === sản phẩm === -->
+    <div class="container mt-5">
+      <h4 class="mb-4 fw-bold">MUA THEO THƯƠNG HIỆU</h4>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-3">
+          <a href="nikemain.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/nike.png" />
+              <span>NIKE</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 2 -->
+        <div class="col-6 col-md-3">
+          <a href="adidas.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/adidas.png" />
+              <span>ADIDAS</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 3 -->
+        <div class="col-6 col-md-3">
+          <a href="puma.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/puma.png" />
+              <span>PUMA</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 4 -->
+        <div class="col-6 col-md-3">
+          <a href="mizuno.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/mizuno.png" />
+              <span>MIZUNO</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 5 -->
+        <div class="col-6 col-md-3">
+          <a href="akka.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/akka.png" />
+              <span>AKKA</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 6 -->
+        <div class="col-6 col-md-3">
+          <a href="wika.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/wika.png" />
+              <span>WIKA</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 7 -->
+        <div class="col-6 col-md-3">
+          <a href="kamito.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/kamito.png" />
+              <span>KAMITO</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- 8 -->
+        <div class="col-6 col-md-3">
+          <a href="zocker.html" class="brand-link">
+            <div class="brand-item">
+              <img src="images/zocker.png" />
+              <span>ZOCKER</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== ICON BAR ===== -->
+    <div class="footer-top">
+      <div class="container d-flex justify-content-between text-center">
+        <div class="footer-box">
+          <i class="bi bi-truck"></i>
+          <div>
+            <b>ĐỔI SIZE TẬN NHÀ</b><br />
+            Freeship đơn >1tr
+          </div>
+        </div>
+
+        <div class="footer-box">
+          <i class="bi bi-shield-check"></i>
+          <div>
+            <b>CHÍNH HÃNG 100%</b><br />
+            Không đúng đền 100 lần
+          </div>
+        </div>
+
+        <div class="footer-box">
+          <i class="bi bi-emoji-smile"></i>
+          <div>
+            <b>BẢO HÀNH 12 THÁNG</b><br />
+            Thứ 2 - Thứ 7
+          </div>
+        </div>
+
+        <div class="footer-box">
+          <i class="bi bi-telephone"></i>
+          <div>
+            <b>0123456789</b><br />
+            Chat Zalo, Facebook
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- LOGO -->
+          <a class="col-md-3" href="main.html">
+            <img
+              src="images/kt2sport-removebg-preview.png"
+              class="footer-logo"
+            />
+          </a>
+
+          <!-- GIỚI THIỆU -->
+          <div class="col-md-3">
+            <h6>KT2 SPORT</h6>
+            <p>
+              Là hệ thống cung cấp giày đá bóng chính hãng, uy tín trên thị
+              trường. Chúng tôi mang đến các sản phẩm chất lượng từ những thương
+              hiệu hàng đầu như Nike, Adidas, Mizuno,… với giá hợp lý và dịch vụ
+              tận tâm, nhằm đem lại trải nghiệm mua sắm tốt nhất cho khách hàng.
+            </p>
+          </div>
+
+          <!-- CAM KẾT -->
+          <div class="col-md-3">
+            <h6>CAM KẾT</h6>
+            <ul class="commit-list">
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Hàng chính hãng 100%
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Không đúng đền 100 lần
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Đổi size tận nhà
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Bảo hành 12 tháng
+              </li>
+            </ul>
+          </div>
+
+          <!-- THÔNG TIN Thành viên -->
+          <div class="col-md-3">
+            <h6>THÔNG TIN THÀNH VIÊN</h6>
+            <ul class="contact-list">
+              <li><i class="bi bi-person"></i> Nguyễn Trần Anh Tuấn</li>
+              <li><i class="bi bi-person"></i> Nguyễn Phạm Anh Khoa</li>
+              <li><i class="bi bi-person"></i> Lê Ngọc Thạch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      showUser();
+    });
+  </script>
+</html>
