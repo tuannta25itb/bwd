@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KT2 SPORT</title>
+    <link
+      rel="icon"
+      href="images/kt2sport-removebg-preview.png"
+      type="image/png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      Sống cùng nhịp đập sân cỏ – Mang đến sản phẩm chất lượng, giá hợp lý cho
+      anh em đam mê bóng đá
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <!-- LOGO -->
+        <a class="navbar-brand" href="main.html">
+          <img src="images/kt2sport-removebg-preview.png" class="logo" />
+  
+        </a>
+
+        <!-- MENU -->
+        <ul class="navbar-nav mx-auto">
+         <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="giayDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    GIÀY BÓNG ĐÁ
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="tf.html">Giày đinh TF</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="fg.html">Giày đinh FG</a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    data-bs-toggle="dropdown"
+  >
+    PHỤ KIỆN
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="ball.html">
+        Quả bóng đá
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="gloves.html">
+        Găng tay thủ môn
+      </a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    data-bs-toggle="dropdown"
+  >
+    HƯỚNG DẪN
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="buy-guide.html">
+        Hướng dẫn mua hàng
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="warranty-policy.html">
+        Chính sách bảo hành
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="return-policy.html">
+        Chính sách đổi trả
+      </a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item"><a class="nav-link" href="aboutme.html">ABOUT ME</a></li>
+        </ul>
+
+       <!-- SEARCH + ICON -->
+        <div class="d-flex align-items-center gap-2 position-relative">
+  <input
+    id="searchInput"
+    class="form-control search-box"
+    placeholder="Tìm kiếm ..."
+    oninput="liveSearch(this.value)"
+    onkeydown="handleEnter(event)"
+  />
+
+  <button class="btn btn-light btn-sm" onclick="goSearchPage()">
+    🔍
+  </button>
+
+  <!-- DROPDOWN KẾT QUẢ -->
+  <div id="search-results" class="search-dropdown"></div>
+
+  <i class="bi bi-cart3 icon" onclick="goToCart()"></i>
+  <i class="bi bi-person icon" onclick="goToAuth()"></i>
+    <div class="position-relative">
+  <span id="user-name" class="text-white" style="cursor:pointer;"></span>
+
+  <!-- DROPDOWN ACCOUNT -->
+  <div id="account-box" class="account-box d-none">
+    <div class="account-item" id="acc-name"></div>
+<div class="account-item" id="acc-email"></div>
+<div class="account-item" id="acc-phone"></div>
+<hr />
+<button class="btn btn-sm btn-danger w-100" onclick="logout()">
+  Đăng xuất
+</button>
+  </div>
+</div>
+</div>
+    </nav>
+
+<!-- thêm -->
+ <section class="policy-section">
+  <div class="container">
+    <div class="policy-box">
+
+      <h2>CHÍNH SÁCH ĐỔI TRẢ HÀNG</h2>
+
+      <p>
+        KT2 SPORT hiện chưa áp dụng chính sách hoàn tiền đối với các sản phẩm đã bán.
+        Tuy nhiên, chúng tôi luôn hỗ trợ đổi sản phẩm trong những trường hợp phù hợp
+        nhằm mang đến trải nghiệm tốt nhất cho khách hàng.
+      </p>
+
+      <h5>1. Đổi hàng theo nhu cầu cá nhân</h5>
+
+      <p>
+        Khách hàng có thể đổi sang sản phẩm khác nếu sản phẩm nhận được chưa phù hợp
+        về size hoặc cảm giác mang. Điều kiện đổi hàng gồm:
+      </p>
+
+      <ul>
+        <li>Sản phẩm không thuộc chương trình giảm giá hoặc xả hàng.</li>
+        <li>Giày còn mới nguyên, chưa có dấu hiệu sử dụng hoặc trầy xước.</li>
+        <li>Đầy đủ hộp, phụ kiện và tình trạng như lúc nhận hàng.</li>
+        <li>Thời gian hỗ trợ đổi trong vòng 07 ngày kể từ ngày nhận hàng.</li>
+        <li>Sản phẩm đổi phải có giá trị bằng hoặc cao hơn sản phẩm ban đầu.</li>
+      </ul>
+
+      <p>
+        KT2 SPORT rất mong khách hàng kiểm tra kỹ size và tình trạng sản phẩm trước khi sử dụng
+        để việc hỗ trợ đổi hàng được thuận lợi hơn.
+      </p>
+
+      <h5>2. Đổi hàng do lỗi từ cửa hàng</h5>
+
+      <p>
+        Trong trường hợp sản phẩm giao sai mẫu, sai size, thiếu hàng hoặc gặp lỗi từ phía vận chuyển,
+        KT2 SPORT sẽ hỗ trợ đổi mới nhanh chóng.
+      </p>
+
+      <p>
+        Khi nhận hàng, khách hàng nên kiểm tra bên ngoài kiện hàng trước khi thanh toán.
+        Nếu phát hiện vấn đề sau khi nhận, vui lòng chụp ảnh sản phẩm và liên hệ với chúng tôi
+        để được hỗ trợ sớm nhất.
+      </p>
+
+      <h5>3. Lưu ý khi gửi hàng đổi</h5>
+
+      <ul>
+        <li>Chỉ gửi lại đúng sản phẩm cần đổi hoặc bảo hành.</li>
+        <li>Không cần gửi kèm quà tặng hoặc phụ kiện không liên quan.</li>
+        <li>Khách hàng vui lòng thanh toán phí gửi hàng ban đầu.</li>
+        <li>Nếu lỗi phát sinh từ phía KT2 SPORT, mọi chi phí sẽ được hỗ trợ hoàn toàn.</li>
+      </ul>
+
+      <h5>4. Hình thức hỗ trợ hoàn tiền</h5>
+
+      <p>
+        Tùy từng trường hợp cụ thể, KT2 SPORT sẽ áp dụng các phương thức hỗ trợ phù hợp như:
+      </p>
+
+      <ul>
+        <li>Đổi sang sản phẩm mới cùng loại.</li>
+        <li>Hoàn tiền qua chuyển khoản ngân hàng.</li>
+        <li>Hoàn tiền trực tiếp tại cửa hàng.</li>
+        <li>Hỗ trợ hoàn tiền qua tài khoản thanh toán đối với đơn online.</li>
+      </ul>
+
+      <div class="note-box">
+        <strong>LƯU Ý:</strong>
+        Các sản phẩm thuộc chương trình SALE, XẢ HÀNG hoặc QUÀ TẶNG
+        sẽ không áp dụng đổi trả dưới bất kỳ hình thức nào.
+      </div>
+
+      <p class="thanks-text">
+        KT2 SPORT xin chân thành cảm ơn quý khách đã tin tưởng và đồng hành cùng chúng tôi.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- LOGO -->
+          <a class="col-md-3" href="main.html">
+            <img
+              src="images/kt2sport-removebg-preview.png"
+              class="footer-logo"
+            />
+          </a>
+
+          <!-- GIỚI THIỆU -->
+          <div class="col-md-3">
+            <h6>KT2 SPORT</h6>
+            <p>
+              Là hệ thống cung cấp giày đá bóng chính hãng, uy tín trên thị
+              trường. Chúng tôi mang đến các sản phẩm chất lượng từ những thương
+              hiệu hàng đầu như Nike, Adidas, Mizuno,… với giá hợp lý và dịch vụ
+              tận tâm, nhằm đem lại trải nghiệm mua sắm tốt nhất cho khách hàng.
+            </p>
+          </div>
+
+          <!-- CAM KẾT -->
+          <div class="col-md-3">
+            <h6>CAM KẾT</h6>
+            <ul class="commit-list">
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Hàng chính hãng 100%
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Không đúng đền 100 lần
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Đổi size tận nhà
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Bảo hành 12 tháng
+              </li>
+            </ul>
+          </div>
+
+          <!-- THÔNG TIN Thành viên -->
+<div class="col-md-3">
+  <h6>THÔNG TIN THÀNH VIÊN</h6>
+  <ul class="contact-list">
+    <li><i class="bi bi-person"></i> Nguyễn Trần Anh Tuấn</li>
+    <li><i class="bi bi-person"></i> Nguyễn Phạm Anh Khoa</li>
+    <li><i class="bi bi-person"></i> Lê Ngọc Thạch</li>
+  </ul>
+</div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+  <script>
+  showUser();
+</script>
+</html>

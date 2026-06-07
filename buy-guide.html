@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KT2 SPORT</title>
+    <link
+      rel="icon"
+      href="images/kt2sport-removebg-preview.png"
+      type="image/png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      Sống cùng nhịp đập sân cỏ – Mang đến sản phẩm chất lượng, giá hợp lý cho
+      anh em đam mê bóng đá
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <!-- LOGO -->
+        <a class="navbar-brand" href="main.html">
+          <img src="images/kt2sport-removebg-preview.png" class="logo" />
+  
+        </a>
+
+        <!-- MENU -->
+        <ul class="navbar-nav mx-auto">
+         <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    id="giayDropdown"
+    role="button"
+    data-bs-toggle="dropdown"
+    aria-expanded="false"
+  >
+    GIÀY BÓNG ĐÁ
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="tf.html">Giày đinh TF</a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="fg.html">Giày đinh FG</a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    data-bs-toggle="dropdown"
+  >
+    PHỤ KIỆN
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="ball.html">
+        Quả bóng đá
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="gloves.html">
+        Găng tay thủ môn
+      </a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item dropdown">
+  <a
+    class="nav-link dropdown-toggle"
+    href="#"
+    data-bs-toggle="dropdown"
+  >
+    HƯỚNG DẪN
+  </a>
+
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="buy-guide.html">
+        Hướng dẫn mua hàng
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="warranty-policy.html">
+        Chính sách bảo hành
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="return-policy.html">
+        Chính sách đổi trả
+      </a>
+    </li>
+  </ul>
+</li>
+          <li class="nav-item"><a class="nav-link" href="aboutme.html">ABOUT ME</a></li>
+        </ul>
+
+     <!-- SEARCH + ICON -->
+        <div class="d-flex align-items-center gap-2 position-relative">
+  <input
+    id="searchInput"
+    class="form-control search-box"
+    placeholder="Tìm kiếm ..."
+    oninput="liveSearch(this.value)"
+    onkeydown="handleEnter(event)"
+  />
+
+  <button class="btn btn-light btn-sm" onclick="goSearchPage()">
+    🔍
+  </button>
+
+  <!-- DROPDOWN KẾT QUẢ -->
+  <div id="search-results" class="search-dropdown"></div>
+
+  <i class="bi bi-cart3 icon" onclick="goToCart()"></i>
+  <i class="bi bi-person icon" onclick="goToAuth()"></i>
+    <div class="position-relative">
+  <span id="user-name" class="text-white" style="cursor:pointer;"></span>
+
+  <!-- DROPDOWN ACCOUNT -->
+  <div id="account-box" class="account-box d-none">
+    <div class="account-item" id="acc-name"></div>
+<div class="account-item" id="acc-email"></div>
+<div class="account-item" id="acc-phone"></div>
+<hr />
+<button class="btn btn-sm btn-danger w-100" onclick="logout()">
+  Đăng xuất
+</button>
+  </div>
+</div>
+</div>
+    </nav>
+
+<!-- thêm -->
+ <section class="policy-section">
+  <div class="container">
+    <div class="policy-box">
+
+      <h2>HƯỚNG DẪN MUA HÀNG</h2>
+
+      <p>
+        Để đặt hàng nhanh nhất, anh em chỉ cần liên hệ trực tiếp qua số hotline
+        <strong>0123.45.67.89</strong> và cung cấp tên sản phẩm cùng size mong muốn.
+        Đội ngũ KT2 SPORT sẽ hỗ trợ xác nhận đơn hàng trong thời gian sớm nhất.
+      </p>
+
+      <p>
+        Ngoài ra, anh em cũng có thể mua hàng trực tiếp trên website thông qua các bước đơn giản dưới đây:
+      </p>
+
+      <h5>Bước 1: Chọn sản phẩm phù hợp</h5>
+
+      <p>
+        Truy cập website KT2 SPORT và tìm kiếm mẫu giày hoặc phụ kiện mà anh em yêu thích.
+        Website hỗ trợ bộ lọc size và danh mục sản phẩm giúp việc tìm kiếm nhanh hơn,
+        dễ dàng lựa chọn đúng mẫu đang còn hàng và đúng kích thước cần dùng.
+      </p>
+
+      <p>
+        Danh sách sản phẩm hiển thị rõ hình ảnh, màu sắc và giá bán để anh em có thể
+        tham khảo trực quan trước khi quyết định mua hàng.
+      </p>
+
+      <h5>Bước 2: Xem chi tiết và thêm vào giỏ hàng</h5>
+
+      <p>
+        Khi nhấn vào sản phẩm, hệ thống sẽ chuyển đến trang chi tiết với đầy đủ thông tin,
+        hình ảnh thực tế, mô tả sản phẩm và size hiện có.
+      </p>
+
+      <ul>
+        <li>Chọn đúng size phù hợp với chân.</li>
+        <li>Kiểm tra giá và thông tin sản phẩm.</li>
+        <li>Nhấn nút MUA NGAY.</li>
+      </ul>
+
+      <h5>Bước 3: Nhập thông tin nhận hàng</h5>
+
+      <p>
+        Tại trang thanh toán, anh em điền đầy đủ thông tin gồm:
+      </p>
+
+      <ul>
+        <li>Họ và tên người nhận.</li>
+        <li>Số điện thoại liên hệ.</li>
+        <li>Địa chỉ giao hàng.</li>
+        <li>Hình thức thanh toán phù hợp.</li>
+      </ul>
+
+      <p>
+        Anh em nên kiểm tra kỹ thông tin trước khi xác nhận để quá trình giao hàng diễn ra nhanh chóng hơn.
+      </p>
+
+      <h5>Bước 4: Xác nhận đơn hàng</h5>
+
+      <p>
+        Sau khi hoàn tất, hệ thống sẽ ghi nhận đơn hàng và KT2 SPORT sẽ liên hệ xác nhận trong thời gian sớm nhất.
+        Anh em nhớ để ý điện thoại để nhân viên hỗ trợ có thể tư vấn thêm nếu cần.
+      </p>
+
+      <div class="note-box">
+        <strong>LƯU Ý:</strong>
+        Vui lòng kiểm tra kỹ size giày, thông tin người nhận và số điện thoại trước khi đặt hàng
+        để tránh các sai sót trong quá trình giao nhận.
+      </div>
+
+      <p class="thanks-text">
+        KT2 SPORT xin chân thành cảm ơn anh em đã tin tưởng và lựa chọn đồng hành cùng chúng tôi.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- LOGO -->
+          <a class="col-md-3" href="main.html">
+            <img
+              src="images/kt2sport-removebg-preview.png"
+              class="footer-logo"
+            />
+          </a>
+
+          <!-- GIỚI THIỆU -->
+          <div class="col-md-3">
+            <h6>KT2 SPORT</h6>
+            <p>
+              Là hệ thống cung cấp giày đá bóng chính hãng, uy tín trên thị
+              trường. Chúng tôi mang đến các sản phẩm chất lượng từ những thương
+              hiệu hàng đầu như Nike, Adidas, Mizuno,… với giá hợp lý và dịch vụ
+              tận tâm, nhằm đem lại trải nghiệm mua sắm tốt nhất cho khách hàng.
+            </p>
+          </div>
+
+          <!-- CAM KẾT -->
+          <div class="col-md-3">
+            <h6>CAM KẾT</h6>
+            <ul class="commit-list">
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Hàng chính hãng 100%
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Không đúng đền 100 lần
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Đổi size tận nhà
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Bảo hành 12 tháng
+              </li>
+            </ul>
+          </div>
+
+          <!-- THÔNG TIN Thành viên -->
+<div class="col-md-3">
+  <h6>THÔNG TIN THÀNH VIÊN</h6>
+  <ul class="contact-list">
+    <li><i class="bi bi-person"></i> Nguyễn Trần Anh Tuấn</li>
+    <li><i class="bi bi-person"></i> Nguyễn Phạm Anh Khoa</li>
+    <li><i class="bi bi-person"></i> Lê Ngọc Thạch</li>
+  </ul>
+</div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+  <script>
+  showUser();
+</script>
+</html>

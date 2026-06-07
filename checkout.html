@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>KT2 SPORT</title>
+    <link
+      rel="icon"
+      href="images/kt2sport-removebg-preview.png"
+      type="image/png"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      Sống cùng nhịp đập sân cỏ – Mang đến sản phẩm chất lượng, giá hợp lý cho
+      anh em đam mê bóng đá
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <!-- LOGO -->
+        <a class="navbar-brand" href="main.html">
+          <img src="images/kt2sport-removebg-preview.png" class="logo" />
+  
+        </a>
+
+        <!-- MENU -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link" href="#">GIÀY BÓNG ĐÁ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">PHỤ KIỆN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">HƯỚNG DẪN</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ABOUT ME</a></li>
+        </ul>
+
+   <!-- SEARCH + ICON -->
+        <div class="d-flex align-items-center gap-2 position-relative">
+  <input
+    id="searchInput"
+    class="form-control search-box"
+    placeholder="Tìm kiếm ..."
+    oninput="liveSearch(this.value)"
+    onkeydown="handleEnter(event)"
+  />
+
+  <button class="btn btn-light btn-sm" onclick="goSearchPage()">
+    🔍
+  </button>
+
+  <!-- DROPDOWN KẾT QUẢ -->
+  <div id="search-results" class="search-dropdown"></div>
+
+  <i class="bi bi-cart3 icon" onclick="goToCart()"></i>
+  <i class="bi bi-person icon" onclick="goToAuth()"></i>
+    <div class="position-relative">
+  <span id="user-name" class="text-white" style="cursor:pointer;"></span>
+
+  <!-- DROPDOWN ACCOUNT -->
+  <div id="account-box" class="account-box d-none">
+    <div class="account-item" id="acc-name"></div>
+<div class="account-item" id="acc-email"></div>
+<div class="account-item" id="acc-phone"></div>
+<hr />
+<button class="btn btn-sm btn-danger w-100" onclick="logout()">
+  Đăng xuất
+</button>
+  </div>
+</div>
+</div>
+    </nav>
+
+<!-- thêm -->
+<!-- CHECKOUT -->
+<div class="container py-5">
+
+  <div class="checkout-box mx-auto">
+
+    <h2 class="fw-bold mb-4 text-center">
+      Thông tin đặt hàng
+    </h2>
+
+    <div class="row g-3">
+
+      <!-- HỌ TÊN -->
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Họ và tên
+        </label>
+
+        <input
+          type="text"
+          id="fullname"
+          class="form-control"
+          placeholder="Nhập họ và tên"
+        >
+
+      </div>
+
+      <!-- SĐT -->
+      <div class="col-md-6">
+
+        <label class="form-label">
+          Số điện thoại
+        </label>
+
+        <input
+          type="text"
+          id="phone"
+          class="form-control"
+          placeholder="Nhập số điện thoại"
+        >
+
+      </div>
+
+      <!-- EMAIL -->
+      <div class="col-12">
+
+        <label class="form-label">
+          Email
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Nhập email"
+        >
+
+      </div>
+
+      <!-- ĐỊA CHỈ -->
+      <div class="col-12">
+
+        <label class="form-label">
+          Địa chỉ nhận hàng
+        </label>
+
+        <textarea
+          id="address"
+          class="form-control"
+          rows="3"
+          placeholder="Nhập địa chỉ nhận hàng"
+        ></textarea>
+
+      </div>
+
+      <!-- GHI CHÚ -->
+      <div class="col-12">
+
+        <label class="form-label">
+          Ghi chú đơn hàng
+        </label>
+
+        <textarea
+          id="note"
+          class="form-control"
+          rows="3"
+          placeholder="Ví dụ: giao giờ hành chính..."
+        ></textarea>
+
+      </div>
+
+      <!-- THANH TOÁN -->
+      <div class="col-12">
+
+        <label class="form-label fw-bold">
+          Phương thức thanh toán
+        </label>
+
+        <div class="payment-box">
+
+          <input
+            type="radio"
+            checked
+          >
+
+          Thanh toán khi nhận hàng (COD)
+
+        </div>
+
+      </div>
+
+      <!-- BUTTON -->
+      <div class="col-12 mt-4">
+
+        <button
+          class="btn btn-danger w-100 place-order-btn"
+          onclick="placeOrder()"
+        >
+          Xác nhận đặt hàng
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+function placeOrder() {
+
+  const fullname =
+    document.getElementById("fullname").value;
+
+  const phone =
+    document.getElementById("phone").value;
+
+  const email =
+    document.getElementById("email").value;
+
+  const address =
+    document.getElementById("address").value;
+
+  // kiểm tra nhập
+  if (
+    !fullname ||
+    !phone ||
+    !email ||
+    !address
+  ) {
+
+    alert("Vui lòng nhập đầy đủ thông tin");
+    return;
+  }
+
+  // lấy cart
+  let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+  // lấy sản phẩm
+ let products =
+  JSON.parse(localStorage.getItem("Products")) || [];
+
+  // trừ stock
+  cart.forEach(item => {
+
+    let product = products.find(p => p.id == item.id);
+
+    if(product){
+
+      product.stock -= item.quantity;
+
+      if(product.stock < 0){
+        product.stock = 0;
+      }
+
+    }
+
+  });
+
+  // LƯU LẠI
+  localStorage.setItem(
+  "Products",
+  JSON.stringify(products)
+);
+
+  // xoá giỏ
+  localStorage.removeItem("cart");
+
+  // thông báo
+  alert(
+    "🎉 Đặt hàng thành công!\n\nCảm ơn bạn đã mua hàng tại KT2 SPORT"
+  );
+
+  // chuyển trang
+  window.location.href = "main.html";
+
+}
+
+</script>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <!-- LOGO -->
+          <a class="col-md-3" href="main.html">
+            <img
+              src="images/kt2sport-removebg-preview.png"
+              class="footer-logo"
+            />
+          </a>
+
+          <!-- GIỚI THIỆU -->
+          <div class="col-md-3">
+            <h6>KT2 SPORT</h6>
+            <p>
+              Là hệ thống cung cấp giày đá bóng chính hãng, uy tín trên thị
+              trường. Chúng tôi mang đến các sản phẩm chất lượng từ những thương
+              hiệu hàng đầu như Nike, Adidas, Mizuno,… với giá hợp lý và dịch vụ
+              tận tâm, nhằm đem lại trải nghiệm mua sắm tốt nhất cho khách hàng.
+            </p>
+          </div>
+
+          <!-- CAM KẾT -->
+          <div class="col-md-3">
+            <h6>CAM KẾT</h6>
+            <ul class="commit-list">
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Hàng chính hãng 100%
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Không đúng đền 100 lần
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Đổi size tận nhà
+              </li>
+              <li>
+                <i class="bi bi-check-circle-fill"></i>
+                Bảo hành 12 tháng
+              </li>
+            </ul>
+          </div>
+
+          <!-- THÔNG TIN Thành viên -->
+<div class="col-md-3">
+  <h6>THÔNG TIN THÀNH VIÊN</h6>
+  <ul class="contact-list">
+    <li><i class="bi bi-person"></i> Nguyễn Trần Anh Tuấn</li>
+    <li><i class="bi bi-person"></i> Nguyễn Phạm Anh Khoa</li>
+    <li><i class="bi bi-person"></i> Lê Ngọc Thạch</li>
+  </ul>
+</div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </body>
+  <script>
+  showUser();
+</script>
+</html>
